@@ -1,0 +1,29 @@
+.login-page{
+    height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+.login-box{
+    height: 400px;
+    width: 400px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+
+}
+
+h1 {
+    font-size: 42px;
+    background: linear-gradient(to right,	#0f1042,#00FFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
