@@ -1,17 +1,48 @@
 import React from 'react'
 import './LoginPage.css'
 import { useState } from 'react'
-function LoginPage() {
+import { app ,auth} from './Config';
+import { onAuthStateChanged } from 'firebase/auth';
+import { useEffect } from 'react';
+import { doSignInWithEmail,doCreateUserWithEmail,doSignOutWithEmail } from './Auth'
+import im1 from './im.jpg'
+import { Navigate } from 'react-router-dom';
+function LoginPage({user}) {
   const [Email,setEmail]=useState('')
   const[Pass,setPass]=useState('')
+  const [islog,setIsLog]=useState(false)
+
+
+ 
+
+
+
+
+
   const Emailhandler =(event) => {
     setEmail(event.target.value)
   }
   const Passhandler =(event) => {
     setPass(event.target.value)
   }
+
+  const loginAction =(event) => {
+
+    console.log(`${Email}===> ${Pass}`)
+    doSignInWithEmail(Email,Pass).then((e)=>{
+      setIsLog(true)
+    }).catch((e)=>{
+      console.log(e)
+      setIsLog(false)
+    })
+  }
+  if(user){
+    return <Navigate to ="/Home"></Navigate>
+  }
+  
   return (
     <div className="login-page">
+      {islog }
         <div className="login-box">
           <div className='login-container'>
 
@@ -32,7 +63,7 @@ function LoginPage() {
 
          <div className='pass-bar'>
            <input 
-          type='text'
+          type='password'
           className="text-input"
           value={Pass}
           onChange={Passhandler}
@@ -41,8 +72,12 @@ function LoginPage() {
           />
 
          </div>
+         <div className="row-1">
+          <span>signup</span>
+          <span>forgot password?</span>
+         </div>
          <div >
-          <button className='login-btn'>Login</button>
+          <button className='login-btn' onClick={loginAction}>Login</button>
         </div>
 
           </div>
@@ -51,10 +86,10 @@ function LoginPage() {
 
         </div>
         <div className="img-box">
-          <div className='image-container'>
+          
 
-          <img src='https://images.pexels.com/photos/159515/football-american-football-runner-player-159515.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' className='img-f'/>
-          </div>
+          <img src={im1} className='img-f'/>
+          <div className='txt-fill'>Game On</div>
         </div>
 
     </div>

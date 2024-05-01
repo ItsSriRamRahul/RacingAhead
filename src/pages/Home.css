@@ -1,0 +1,31 @@
+.login-btn{
+    font-size: 28px;
+    letter-spacing: 2px;
+    padding: 10px 40px;
+    background-color: #145DA0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+   
+}
+
+.Home{
+height: 100vh;
+
+}
+.NavBar{
+    background-color: #145DA0;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+}
+.letter-box{
+    font-size: 32px;
+    padding-left: 30px;
+    padding-top: 10px;
+}
