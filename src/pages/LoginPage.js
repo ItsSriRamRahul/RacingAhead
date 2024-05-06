@@ -41,7 +41,7 @@ function LoginPage({user}) {
   }
   
   return (
-    <div className="login-page">
+    <div className="flex h-full">
       {islog }
         <div className="login-box">
           <div className='login-container'>
@@ -61,7 +61,7 @@ function LoginPage({user}) {
           />
 </div>
 
-         <div className='pass-bar'>
+         <div className='pass-bar px-3'>
            <input 
           type='password'
           className="text-input"

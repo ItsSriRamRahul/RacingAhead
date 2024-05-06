@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from "react"
 import { initializeAuth, onAuthStateChanged } from "firebase/auth"
 import { auth } from './pages/Config';
 import {ProtectedRoute} from './pages/ProtectedRoute';
+import AuthHandler from './pages/AuthHandler';
 function App() {
  
  const[user,setUser]=useState()
@@ -37,7 +38,7 @@ return ()=>sub()
    <Route path="/Login" element={<LoginPage user={user}/>}></Route>
    <Route path="/Home" element={
    <ProtectedRoute user={user} >
-    <Home />
+    <AuthHandler user={user} />
    </ProtectedRoute>
    }></Route>
 

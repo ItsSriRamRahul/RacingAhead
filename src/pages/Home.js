@@ -1,17 +1,48 @@
-import React from 'react'
-import './Home.css'
+import React, { useEffect, useState } from 'react'
+import { MagnifyingGlassIcon } from '@heroicons/react/16/solid'
 import { doSignOutWithEmail } from './Auth'
-function Home() {
+import axios from 'axios'
+import SlideBar from './components/SlideBar'
+const url ='https://us-central1-racing-ahead.cloudfunctions.net/api'
+function Home({user}) {
+  
   const signOut=()=>{
     doSignOutWithEmail()
   }
-  return (
-    <div className='Home'>
-      <div className='NavBar'>
-      <div className='letter-box'>Racing Ahead</div>
-      
-      <button className='login-btn' onClick={signOut}>Signout</button>
+  const [Search,setSearch  ]=useState('')
+  const Searchhandler =(event)=>{
+    setSearch(event.target.value)
+  }
 
+  const[active,Setactive]=useState(false)
+
+  const Active =()=>{
+    Setactive(true)
+  }
+  return (
+    <div className='h-screen bg-gray-300 flex'>
+      <div className={`w-full flex fixed p-4 justify-between bg-slate-600 z-50   `}>
+          <div className='py-1 text-white text-xl tracking-wider'>Racing Ahead</div>
+           <div className='flex justify-center items-center bg-white px-3 rounded-lg'> {/*searchbar*/}
+              <MagnifyingGlassIcon className=' h-6 text-gray-500 mx-2' />
+                  <input  type='text'
+                    className="outline-none w-44"
+                    value={Search}
+                    onChange={Searchhandler}
+                    onClick={Active}
+                    placeholder='Search'
+                    
+                    />
+              </div>
+      <button className=' p-3 bg-white rounded-xl tracking-wider' onClick={signOut}>Sign-Out</button>
+
+      </div>
+      <div className='relative top-24 h-full mx-auto p-3 bg-white rounded-xl w-2/3 right-0.5'> 
+    <h1>
+      {`welcome ${user.name}` }
+
+      </h1>
+      <SlideBar/>
       </div>
     </div>
   )
