@@ -8,6 +8,7 @@ import { initializeAuth, onAuthStateChanged } from "firebase/auth"
 import { auth } from './pages/Config';
 import {ProtectedRoute} from './pages/ProtectedRoute';
 import AuthHandler from './pages/AuthHandler';
+import SignUp from './pages/SignUp';
 function App() {
  
  const[user,setUser]=useState()
@@ -34,9 +35,9 @@ return ()=>sub()
 <div className='App'>
    <BrowserRouter>
    <Routes>
-
-   <Route path="/Login" element={<LoginPage user={user}/>}></Route>
-   <Route path="/Home" element={
+    <Route path='/signup'element={<SignUp/> }/>
+   <Route path="/login" element={<LoginPage user={user}/>}></Route>
+   <Route path="/home" element={
    <ProtectedRoute user={user} >
     <AuthHandler user={user} />
    </ProtectedRoute>

@@ -31,9 +31,7 @@ align-items: center;
     flex-direction: column;
     align-items: center;
 }
-.login-container:hover{
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.3);
-}
+
 .img-box{
     width: 50%;
     display: flex;

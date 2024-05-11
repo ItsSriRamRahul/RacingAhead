@@ -77,7 +77,7 @@ function LoginPage({user}) {
           <span>forgot password?</span>
          </div>
          <div >
-          <button className='login-btn' onClick={loginAction}>Login</button>
+          <button className='bg-slate-700 text-xl px-10 py-3 text-white rounded-md ' onClick={loginAction}>Login</button>
         </div>
 
           </div>
